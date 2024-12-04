@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.wbcontainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.bgimg {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.bgimg video {
+    position: relative;
+    object-fit: cover;
+    align-items: center;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: #222;
+}
+
+.logo {
+    width: 40%;
+}
+
+.menu {
+    width: 40%;
+}
+
+.logo p i {
+    margin-left: 40px;
+    line-height: 65px;
+    font-size: 20px;
+    font-family: 'VALORANT', sans-serif !important;
+    color: #ece8e1;
+}
+
+.logo p {
+    margin-left: 40px;
+    line-height: 65px;
+    font-size: 20px;
+    font-family: 'VALORANT', sans-serif !important;
+    font-weight: lighter;
+    color: #ece8e1;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+ul li {
+    margin: 0 30px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    line-height: 65px;
+    transition: 0.5s ease-in-out;
+}
+
+ul li a:hover {
+    color: #ff4566;
+}
+
+.mainbtn button {
+    padding: 10px 30px;
+    background: #ff4566;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-left: 100px;
+}
+
+.plbtn {
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.plbtn:hover {
+    color: #ff4566;
+    background-color: #222;
+}
+
+.appnext {
+    position: absolute;
+    left: 8%;
+    top: 35%;
+}
+
+.appnext h2 {
+    font-size: 4.2rem;
+    font-family: 'poppins';
+    color: var(#ece8e1);
+}
+
+.appnext h2 span {
+    color: #ff4566;
+}
+
+.appnext p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.appnext p span {
+    color: #ff4566;
+}
+
+.appwarp .btncntr {
+    margin-top: 40px;
+}
+
+.btncntr {
+    overflow-y: hidden;
+}
+
+button {
+    all: unset;
+    position: relative;
+    cursor: pointer;
+}
+
+button div {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    padding: 15px 0;
+    background: #ff4655;
+}
+
+button div::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    height: 5px;
+    background: #0f1923;
+    transition: 0.4s;
+}
+
+button:hover div::after {
+    background: #ece8e1;
+}
+
+button div span {
+    position: absolute;
+    width: 120%;
+    height: 110%;
+    transform: translate(-100%, -20%);
+    background: #0f1923;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+    transition: 0.4s;
+}
+
+button:hover div span {
+    transform: translate(-10%, -20px);
+}
+
+button div a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 80px;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: -10px;
+    width: calc(100% + 20px);
+    height: calc(50% + 5px);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    bottom: -10px;
+    width: calc(100% + 20px);
+    height: calc(50% + 5px);
+}
+
+/* Video Section */
+.video-section {
+    display: flex;
+    padding: 50px 20px;
+    background-color: #222;
+    color: white;
+}
+
+.video-section .video-container {
+    width: 50%;
+}
+
+.video-section .video-container video {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.video-section .context {
+    width: 50%;
+    padding: 20px;
+}
+
+.video-section h3 {
+    font-size: 2rem;
+}
+
+.video-section p {
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+/* Maps Section */
+.maps-section {
+    padding: 50px 20px;
+    background-color: #ff4566;
+    color: white;
+    overflow: hidden; /* Ensure the section itself doesn’t overflow */
+}
+
+.maps-gallery {
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 20px;
+    align-items: flex-end;
+}
+
+.maps-gallery img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.maps-gallery img:hover {
+    transform: scale(1.05);
+}
+
+
+footer {
+    background-color: #222;
+}
+
+.footer-ctn {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.socicon {
+    display: flex;
+    justify-content: center;
+}
+
+.socicon a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socicon a i {
+    font-size: 2em;
+    color: #222;
+    opacity: 0.9;
+}
+
+.socicon a:hover {
+    background-color: #111;
+    transition: 0.5;
+}
+
+.socicon a :hover i {
+    color: #fff;
+    transition: 0.5;
+}
+
+.footer-nav {
+    margin: 30px 0;
+}
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.footer-nav ul li a {
+    color: #fff;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footer-nav ul li a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: white;
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}

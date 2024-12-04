@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('sage/sagebg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Sage</h1>
+            <p class="character-description">A peaceful soul turned protector, Sage is a powerful healer with the ability to revive fallen teammates and control key points of the battlefield with her defensive abilities. She's a crucial support character for any team, ensuring survival and providing control over critical areas.</p>
+        </div>
+    </section>
+    
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="sage/heal.avif" alt="Healing Orb">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="sage/barrier.avif" alt="Barrier Orb">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="sage/slow.avif" alt="Slow Orb">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="sage/ult.avif" alt="Resurrection">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="sage/heal.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">C - Healing Orb</h3>
+                <p id="skill-description">EQUIP a Healing Orb that heals allies over time when used. FIRE to heal yourself or teammates, providing recovery from damage to help hold positions or prepare for the next battle.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "C - Healing Orb",
+        description: "EQUIP a Healing Orb that heals allies over time when used. FIRE to heal yourself or teammates, providing recovery from damage to help hold positions or prepare for the next battle.",
+        video: "sage/heal.mp4",
+        img: "sage/heal.png"
+    },
+    {
+        name: "Q - Barrier Orb",
+        description: "EQUIP a Barrier Orb. FIRE to deploy a wall that can block vision and slow enemies in its path, creating space for your team to push or hold strategic points.",
+        video: "sage/barrier.mp4",
+        img: "sage/barrier.png"
+    },
+    {
+        name: "E - Slow Orb",
+        description: "EQUIP a Slow Orb. FIRE to deploy an orb that slows down enemies who step on it, giving your team a major advantage in positioning and timing during fights.",
+        video: "sage/slow.mp4",
+        img: "sage/slow.png"
+    },
+    {
+        name: "X - Resurrection (Ultimate)",
+        description: "ACTIVATE to resurrect a dead teammate, bringing them back to life and allowing them to rejoin the fight. This powerful ability can turn the tide of a round and give your team another chance.",
+        video: "sage/ult.mp4",
+        img: "sage/ult.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>
