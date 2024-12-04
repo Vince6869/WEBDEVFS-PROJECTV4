@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('brimstone/brimbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Brimstone</h1>
+            <p class="character-description">A towering figure, Brimstone brings heavy artillery and tactical smarts to the battlefield. His precision strikes and area control abilities can change the flow of any fight, making him a key tactical asset for any team.</p>
+        </div>
+    </section>
+    
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="brimstone/smoke.avif" alt="Sky Smokes">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="brimstone/skyfire.avif" alt="Incendiary">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="brimstone/stim.avif" alt="Stim Beacon">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="brimstone/ult.avif" alt="Orbital Strike">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="brimstone/smoke.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Sky Smokes</h3>
+                <p id="skill-description">EQUIP a tactical smoke grenade. FIRE to launch a smokescreen that blocks vision and dampens sound, providing cover for your team or disrupting enemy strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Q - Sky Smokes",
+        description: "EQUIP a tactical smoke grenade. FIRE to launch a smokescreen that blocks vision and dampens sound, providing cover for your team or disrupting enemy strategies.",
+        video: "brimstone/smoke.mp4",
+        img: "brimstone/smoke.png"
+    },
+    {
+        name: "E - Incendiary",
+        description: "EQUIP a grenade that creates a fire zone on the ground when thrown. FIRE to launch the grenade, which creates an area of fire that damages anyone inside it.",
+        video: "brimstone/skyfire.mp4",
+        img: "brimstone/skyfire.png"
+    },
+    {
+        name: "C - Stim Beacon",
+        description: "EQUIP a Stim Beacon that provides nearby allies with a boost to their fire rate. FIRE to throw the beacon into the desired location, granting a temporary speed boost to those who stand within its radius.",
+        video: "brimstone/stim.mp4",
+        img: "images/brimstone/stim.png"
+    },
+    {
+        name: "X - Orbital Strike (Ultimate)",
+        description: "ACTIVATE to call down a devastating orbital strike that decimates an area. The strike is precise and can clear enemies from key locations, providing major control over the battlefield.",
+        video: "brimstone/ult.mp4",
+        img: "brimstone/ult.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>

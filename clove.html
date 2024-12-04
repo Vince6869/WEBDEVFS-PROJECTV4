@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('clove/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Clove</h1>
+            <p class="character-description">Scottish troublemaker Clove makes mischief for enemies in both the heat of combat and the cold of death. The young immortal keeps foes guessing, even from beyond the grave, their return to the living only ever a moment away.</p>
+        </div>
+    </section>
+
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="clove/roots.avif" alt="Roots">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="clove/thorn.avif" alt="Thorn Barrage">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="clove/vine.avif" alt="Vine Trap">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="clove/ult.avif" alt="Bloomfield">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="clove/roots.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Meddle</h3>
+                <p id="skill-description">EQUIP a fragment of immortality essence. FIRE to throw the fragment, which erupts after a short delay and temporarily decays all targets caught inside.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Meddle",
+        description: "EQUIP a fragment of immortality essence. FIRE to throw the fragment, which erupts after a short delay and temporarily decays all targets caught inside.",
+        video: "clove/roots.mp4",
+        img: "clove/roots.png"
+    },
+    {
+        name: "Ruse",
+        description: "EQUIP to view the battlefield. FIRE to set the locations where Clove’s clouds will settle. ALT FIRE to confirm, launching clouds that block vision in the chosen areas. Clove can use this ability after death.",
+        video: "clove/thorn.mp4",
+        img: "/clove/thorn.png"
+    },
+    {
+        name: "Pick-Me-Up",
+        description: "INSTANTLY absorb the life force of a fallen enemy that Clove damaged or killed, gaining haste and temporary health.",
+        video: "clove/vine.mp4",
+        img: "clove/vine.png"
+    },
+    {
+        name: "Not Dead",
+        description: "After dying, ACTIVATE to resurrect. Once resurrected, Clove must earn a kill or a damaging assist within a set time or they will die.",
+        video: "clove/ult.mp4",
+        img: "clove/ult.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>
