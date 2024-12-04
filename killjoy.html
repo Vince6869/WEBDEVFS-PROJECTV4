@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('killjoy/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Killjoy</h1>
+            <p class="character-description">Killjoy is a German engineer who uses her intellect to control the battlefield. Her gadget-based abilities allow her to lock down areas, disrupt enemy movements, and provide valuable intel for her team. She excels at controlling and denying space with her mechanical prowess.</p>
+        </div>
+    </section>
+
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="killjoy/nanoswarm.avif" alt="Nanoswarm">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="killjoy/sentry.avif" alt="Sentry">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="killjoy/lockdown.avif" alt="Lockdown">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="killjoy/ultimate.avif" alt="Lockdown (Ultimate)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="killjoy/nanoswarm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Nanoswarm</h3>
+                <p id="skill-description">EQUIP a grenade that, when activated, explodes to release a damaging gas cloud that deals significant damage to enemies within its radius.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Nanoswarm",
+        description: "EQUIP a grenade that, when activated, explodes to release a damaging gas cloud that deals significant damage to enemies within its radius.",
+        video: "killjoy/nanoswarm.mp4",
+        img: "killjoy/nanoswarm.png"
+    },
+    {
+        name: "Sentry Turret",
+        description: "EQUIP a turret that automatically detects and fires at nearby enemies. It slows them down and provides valuable intel on enemy locations.",
+        video: "killjoy/sentry.mp4",
+        img: "killjoy/sentry.png"
+    },
+    {
+        name: "Alarmbot",
+        description: "EQUIP a large device that can be deployed to send out a pulse. Enemies caught in its range are slowed and eventually stunned, leaving them vulnerable.",
+        video: "killjoy/lockdown.mp4",
+        img: "killjoy/lockdown.png"
+    },
+    {
+        name: "Lockdown (Ultimate)",
+        description: "ACTIVATE to deploy a massive device that emits a pulse over a large area. Enemies hit by the pulse are slowed and then stunned, allowing you to easily capitalize on their vulnerability.",
+        video: "killjoy/ultimate.mp4",
+        img: "killjoy/ultimate.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>
