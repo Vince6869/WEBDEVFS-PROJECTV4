@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('iso/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Iso</h1>
+            <p class="character-description">Chinese fixer for hire Iso falls into a flow state to dismantle the opposition. Reconfiguring ambient energy into bulletproof protection, he advances with focus towards his next duel to the death.</p>
+        </div>
+    </section>
+
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="iso/timewarp.avif" alt="Time Warp">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="iso/chrono.avif" alt="Chrono Field">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="iso/pulse.avif" alt="Energy Pulse">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="iso/ult.avif" alt="Temporal Rift">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="iso/timewarp.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Undercut</h3>
+                <p id="skill-description">EQUIP a molecular bolt. Fire to throw it forward, applying a brief FRAGILE to all players it touches. The bolt can pass through solid objects, including walls.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Undercut",
+        description: "EQUIP a molecular bolt. Fire to throw it forward, applying a brief FRAGILE to all players it touches. The bolt can pass through solid objects, including walls.",
+        video: "iso/timewarp.mp4",
+        img: "iso/timewarp.png"
+    },
+    {
+        name: "Double Tap",
+        description: "START a focus timer. Once completed, enter a flow state during which downed enemies you kill or damage generate an energy orb. Shooting this orb grants you a shield which absorbs one instance of damage from any source.",
+        video: "iso/chrono.mp4",
+        img: "iso/chrono.png"
+    },
+    {
+        name: "Contingency",
+        description: "EQUIP to assemble prismatic energy. FIRE to push an indestructible wall of energy forward that blocks bullets.",
+        video: "iso/pulse.mp4",
+        img: "iso/pulse.png"
+    },
+    {
+        name: "Kill Contract",
+        description: "EQUIP an interdimensional arena. FIRE to hurl a column of energy through the battlefield, pulling you and the first enemy hit into the arena. You and your opponent duel to the death.",
+        video: "iso/ult.mp4",
+        img: "iso/ult.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>
