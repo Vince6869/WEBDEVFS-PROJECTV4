@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('vyse/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Vyse</h1>
+            <p class="character-description">Metallic mastermind Vyse unleashes liquid metal to isolate, trap, and disarm her enemies. Through cunning and manipulation, she forces all who oppose her to fear the battlefield itself.</p>
+        </div>
+    </section>
+
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="vyse/forcepush.avif" alt="Force Push">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="vyse/gravshift.avif" alt="Gravitational Shift">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="vyse/impluse.avif" alt="Kinetic Impulse">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="vyse/ult.avif" alt="Vortex Storm">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="vyse/forcepush.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Force Push</h3>
+                <p id="skill-description">[Ability description goes here]</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Shear",
+        description: "EQUIP filaments of liquid metal. FIRE to place a hidden wall trap. When an enemy crosses, an indestructible wall bursts from the ground behind them. The wall lasts for a brief time before dissipating",
+        video: "vyse/forcepush.mp4",
+        img: "vyse/forcepush.png"
+    },
+    {
+        name: "Arc Rose",
+        description: "EQUIP an Arc Rose. Target a surface and FIRE to place a stealthed Arc Rose, or ALT Fire to place the Arc Rose through it. REUSE to blind all players looking at it. This ability can be picked up to be REDEPLOYED.",
+        video: "vyse/gravshift.mp4",
+        img: "vyse/gravshift.png"
+    },
+    {
+        name: "Razor Vine",
+        description: "EQUIP a nest of liquid metal. FIRE to launch. Upon landing, the nest becomes invisible. When ACTIVATED, it sprawls out into a large razorvine nest which slows and damages all players who move through it.",
+        video: "vyseimpulse.mp4",
+        img: "vyse/impulse.avif"
+    },
+    {
+        name: "Steel Garden",
+        description: "EQUIP a bramble of liquid metal. FIRE to send the metal erupting from you as a torrent of metal thorns, JAMMING enemy primary weapons after a brief windup.",
+        video: "vyse/ult.mp4",
+        img: "vyse/ult.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>

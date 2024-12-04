@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Description</title>
+    <link rel="stylesheet" href="agents.css">
+    <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
+</head>
+<style>
+.character-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-image: url('viper/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 600px;
+    position: relative;
+}
+
+.character-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.character-details {
+    text-align: center;
+    z-index: 1;
+}
+
+.character-name {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.character-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    max-width: 500px;
+}
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <p><i>V</i>alorant</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html" class="menu-lnk">Home</a></li>
+                <li><a href="login.html" class="menu-lnk">About</a></li>
+                <li><a href="login.html" class="menu-lnk">Agents</a></li>
+                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="mainbtn">
+            <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+        </div>
+    </nav>
+
+    <section class="character-info">
+        <div class="character-details">
+            <h1 class="character-name">Viper</h1>
+            <p class="character-description">Viper is a controlling agent who uses toxins and traps to manipulate the battlefield. With her skillset, she can block vision, slow down enemies, and deal damage with her toxic abilities. She excels in area denial and punishing enemies who try to cross her toxic zones.</p>
+        </div>
+    </section>
+
+    <section class="special-abilities">
+        <div class="abilities-info">
+            <h2>Special Abilities</h2>
+            <div class="skills-selector">
+                <div class="skills-list">
+                    <div class="skill-item" onclick="changeSkill(0)">
+                        <img src="viper/poisoncloud.avif" alt="Poison Cloud">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(1)">
+                        <img src="viper/decay.avif" alt="Toxic Screen">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(2)">
+                        <img src="viper/chemlauncher.avif" alt="Snake Bite">
+                    </div>
+                    <div class="skill-item" onclick="changeSkill(3)">
+                        <img src="viper/ultimate.avif" alt="Viper's Pit">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-display">
+            <video id="skill-video" controls>
+                <source id="video-source" src="viper/poisoncloud.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="skill-details">
+                <h3 id="skill-name">Poison Cloud</h3>
+                <p id="skill-description">EQUIP a canister that can be thrown to deploy a cloud of toxic gas. The cloud can be activated remotely to block vision and deal damage over time to enemies caught within it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-buttons">
+        <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
+        <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+<script>
+const skillsData = [
+    {
+        name: "Poison Cloud",
+        description: "EQUIP a canister that can be thrown to deploy a cloud of toxic gas. The cloud can be activated remotely to block vision and deal damage over time to enemies caught within it.",
+        video: "viper/poisoncloud.mp4",
+        img: "viper/poisoncloud.png"
+    },
+    {
+        name: "Toxic Screen",
+        description: "EQUIP a long line of toxic gas emitters. FIRE to deploy the line, creating a wall of toxic gas that blocks vision and deals damage to enemies passing through it.",
+        video: "viper/decay.mp4",
+        img: "viper/decay.png"
+    },
+    {
+        name: "Snake Bite",
+        description: "FIRE a projectile that explodes on impact, releasing a pool of acid that slows and damages enemies standing in it.",
+        video: "viper/chemlauncher.mp4",
+        img: "viper/chemlauncher.png"
+    },
+    {
+        name: "Viper's Pit",
+        description: "ACTIVATE to release a massive toxic cloud that covers a large area. Enemies within the cloud are affected by a constant poison effect, while the area is also obscured by smoke, making it difficult for enemies to see or take action.",
+        video: "viper/ultimate.mp4",
+        img: "viper/ultimate.png"
+    }
+];
+
+function changeSkill(index) {
+    const video = document.getElementById('skill-video');
+    const videoSource = document.getElementById('video-source');
+    const skillName = document.getElementById('skill-name');
+    const skillDescription = document.getElementById('skill-description');
+
+    videoSource.src = skillsData[index].video;
+    skillName.textContent = skillsData[index].name;
+    skillDescription.textContent = skillsData[index].description;
+
+    video.load(); 
+    video.play();
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => item.classList.remove('active'));
+    skillItems[index].classList.add('active');
+}
+</script>
+</html>
