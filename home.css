@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav .logo p {
+    color: white;
+    font-size: 24px;
+    font-family: 'VALORANT', sans-serif;
+    font-weight: bold;
+}
+
+nav .menu ul {
+    display: flex;
+    list-style: none;
+}
+
+nav .menu ul li {
+    margin-right: 20px;
+}
+
+nav .menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+nav .menu ul li a:hover {
+    color: #ff4566; 
+}
+
+.mainbtn button {
+    padding: 10px 30px;
+    background-color: #ff4566;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.mainbtn button:hover {
+    background-color: #e03456;
+}
+
+
+.mainbtn button {
+    padding: 10px 30px;
+    background: #ff4566;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-left: 100px;
+}
+
+.plbtn {
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.plbtn:hover {
+    color: #ff4566;
+    background-color: #222;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ff4655;
+}
+
+.agent-name {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+.agent:hover .agent-name {
+    color: #ff4655;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+
+.agent {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+.agent:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.agent:hover img {
+    transform: scale(1.1);
+}
+
+.agent a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .agents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
