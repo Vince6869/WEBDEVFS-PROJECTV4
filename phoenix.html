@@ -8,6 +8,71 @@
     <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
 </head>
 <style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Valorant', sans-serif;
+    color: white;
+    background-color: #121212;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+}
+
+nav .logo p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4655; /* Valorant red */
+}
+
+nav .logo i {
+    font-size: 4rem; /* Make V bigger */
+    color: #ff4655;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-lnk {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.menu-lnk:hover {
+    color: #ff4655;
+}
+
+.mainbtn .plbtn {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mainbtn .plbtn:hover {
+    background-color: #e23a47;
+}
+
+/* Character Info Section */
 .character-info {
     display: flex;
     justify-content: center;
@@ -40,16 +105,98 @@
 }
 
 .character-name {
-    font-size: 2.5em;
+    font-size: 3em; /* Larger font size for character name */
+    font-weight: bold;
     margin: 0;
+    text-transform: uppercase;
 }
 
 .character-description {
     font-size: 1.2em;
     margin-top: 10px;
     max-width: 500px;
+    line-height: 1.6;
 }
 
+/* Special Abilities Section */
+.special-abilities {
+    padding: 40px;
+    background-color: #1c1c1c;
+}
+
+.abilities-info h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-selector .skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+.skills-display {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#skill-video {
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid #ff4655;
+    border-radius: 10px;
+}
+
+.skill-details {
+    margin-top: 20px;
+}
+
+.skill-details h3 {
+    font-size: 2em;
+}
+
+.skill-details p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Button Styles for Navigation */
+.nav-button {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #e23a47;
+}
+
+/* Footer */
+footer {
+    background-color: #ff4655;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 </style>
 <body>
     <nav>
@@ -58,10 +205,10 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="index.html" class="menu-lnk">Home</a></li>
-                <li><a href="login.html" class="menu-lnk">About</a></li>
-                <li><a href="login.html" class="menu-lnk">Agents</a></li>
-                <li><a href="login.html" class="menu-lnk">Contact Us</a></li>
+                <li><a href="index.html" class="menu-lnk">About</a></li>
+                <li><a href="maps.html" class="menu-lnk">Maps</a></li>
+                <li><a href="home.html" class="menu-lnk">Agents</a></li>
+                <li><a href="about.html" class="menu-lnk">Contact Us</a></li>
             </ul>
         </div>
         <div class="mainbtn">
@@ -113,6 +260,10 @@
         <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
     </section>
 
+    <footer>
+        <p>&copy; 2024 Valorant | All Rights Reserved</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 <script>
@@ -137,28 +288,18 @@ const skillsData = [
     },
     {
         name: "X - Run It Back (Ultimate)",
-        description: "ACTIVATE to place a marker at Phoenix’s current location. If Phoenix is killed while in the marker’s area, he is revived at the marker with full health.",
+        description: "ACTIVATE to place a marker at Phoenix’s current location. If Phoenix is killed while in the marker’s area, he will be revived at the marker’s position, allowing him to take another attempt.",
         video: "phoenix/ult.mp4",
         img: "phoenix/ult.png"
     }
 ];
 
-function changeSkill(index) {
-    const video = document.getElementById('skill-video');
-    const videoSource = document.getElementById('video-source');
-    const skillName = document.getElementById('skill-name');
-    const skillDescription = document.getElementById('skill-description');
-
-    videoSource.src = skillsData[index].video;
-    skillName.textContent = skillsData[index].name;
-    skillDescription.textContent = skillsData[index].description;
-
-    video.load(); 
-    video.play();
-
-    const skillItems = document.querySelectorAll('.skill-item');
-    skillItems.forEach(item => item.classList.remove('active'));
-    skillItems[index].classList.add('active');
+function changeSkill(skillIndex) {
+    const skill = skillsData[skillIndex];
+    document.getElementById('video-source').src = skill.video;
+    document.getElementById('skill-name').innerText = skill.name;
+    document.getElementById('skill-description').innerText = skill.description;
+    document.getElementById('skill-video').load();
 }
 </script>
 </html>
