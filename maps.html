@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Maps</title>
+   <!-- Favicon Link -->
+  <link rel="icon" href="favicon.webp" type="image/x-icon">  
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #0e0e0e; /* Dark background */
+      color: #fff; /* White text for contrast */
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Navigation bar */
+    nav {
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: 70px;
+      background-color: #111; /* Darker background for the nav */
+      border-bottom: 2px solid #ff4566; /* Valorant accent color */
+    }
+
+    .logo {
+      width: 40%;
+    }
+
+    .menu {
+      width: 40%;
+    }
+
+    .logo p i {
+      margin-left: 40px;
+      line-height: 65px;
+      font-size: 22px;
+      font-family: 'Russo One', sans-serif;
+      color: #ece8e1;
+    }
+
+    .logo p {
+      margin-left: 40px;
+      line-height: 65px;
+      font-size: 22px;
+      font-family: 'Russo One', sans-serif;
+      font-weight: lighter;
+      color: #ece8e1;
+    }
+
+    .menu ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    ul li {
+      margin: 0 30px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: white;
+      line-height: 65px;
+      transition: 0.5s ease-in-out;
+    }
+
+    ul li a:hover {
+      color: #ff4566; /* Valorant accent color */
+    }
+
+    .mainbtn button {
+      padding: 10px 30px;
+      background: #ff4566;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 4px;
+      margin-left: 100px;
+    }
+
+    .plbtn {
+      top: 10px;
+      transition: 0.5s ease-in-out;
+    }
+
+    .plbtn:hover {
+      color: #ff4566;
+      background-color: #222;
+    }
+
+    /* Header section */
+    header {
+      background-color: #222; /* Dark background for header */
+      padding: 40px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      font-size: 40px;
+      color: #ff4566; /* Valorant accent color */
+    }
+
+    header p {
+      font-size: 18px;
+      color: #aaa; /* Light gray text */
+    }
+
+    /* Map container */
+    .map-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    /* Map card styles */
+    .map-card {
+      position: relative;
+      width: 350px;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .map-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+    }
+
+    .map-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .map-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Details overlay */
+    .map-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      color: white;
+      font-family: 'Russo One', sans-serif;
+    }
+
+    .map-card:hover .map-details {
+      transform: translateY(0);
+    }
+
+    .map-details h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #ff4566;
+      font-weight: bold;
+    }
+
+    .map-details p {
+      font-size: 14px;
+      margin-top: 5px;
+      font-weight: 300;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .map-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <nav>
+    <div class="logo">
+      <p><i>V</i>alorant</p>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="login.html">Home</a></li>
+        <li><a href="home.html">Agents</a></li>
+        <li><a href="about.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="mainbtn">
+      <button onclick="location.href='https://playvalorant.com/en-gb/download/'" class="plbtn">Play Now</button>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Valorant Maps</h1>
+    <p>Explore the best maps in Valorant!</p>
+  </header>
+
+  <!-- Map Container Section -->
+  <main>
+    <div class="map-container">
+      <!-- Ascent -->
+      <div class="map-card">
+        <img src="maps/ascent.webp" alt="Ascent">
+        <div class="map-details">
+          <h2>Ascent</h2>
+          <p>A Venice-inspired map featuring a large open middle area with mechanical doors.</p>
+        </div>
+      </div>
+      <!-- Bind -->
+      <div class="map-card">
+        <img src="maps/bind.webp" alt="Bind">
+        <div class="map-details">
+          <h2>Bind</h2>
+          <p>Set in a desert, this map features teleporters for unique rotation opportunities.</p>
+        </div>
+      </div>
+      <!-- Haven -->
+      <div class="map-card">
+        <img src="maps/haven.webp" alt="Haven">
+        <div class="map-details">
+          <h2>Haven</h2>
+          <p>A unique map with three bomb sites, emphasizing site control strategies.</p>
+        </div>
+      </div>
+      <!-- Split -->
+      <div class="map-card">
+        <img src="maps/split.jpg" alt="Split">
+        <div class="map-details">
+          <h2>Split</h2>
+          <p>An urban map with tight chokepoints and elevated areas.</p>
+        </div>
+      </div>
+      <!-- Icebox -->
+      <div class="map-card">
+        <img src="maps/icebox.jpg" alt="Icebox">
+        <div class="map-details">
+          <h2>Icebox</h2>
+          <p>A snowy map with verticality and zipline mechanics for fast movement.</p>
+        </div>
+      </div>
+      <!-- Breeze -->
+      <div class="map-card">
+        <img src="maps/breeze.webp" alt="Breeze">
+        <div class="map-details">
+          <h2>Breeze</h2>
+          <p>A tropical map with large open spaces, long sightlines, and unique chokepoints.</p>
+        </div>
+      </div>
+      <!-- Fracture -->
+      <div class="map-card">
+        <img src="maps/fracture.webp" alt="Fracture">
+        <div class="map-details">
+          <h2>Fracture</h2>
+          <p>A map with a unique H-shaped layout and zipline traversals between two sides.</p>
+        </div>
+      </div>
+      <!-- Pearl -->
+      <div class="map-card">
+        <img src="maps/pearl.avif" alt="Pearl">
+        <div class="map-details">
+          <h2>Pearl</h2>
+          <p>An underwater city map with traditional tactical shooter design.</p>
+        </div>
+      </div>
+      <!-- Lotus -->
+      <div class="map-card">
+        <img src="maps/lotus.jpg" alt="Lotus">
+        <div class="map-details">
+          <h2>Lotus</h2>
+          <p>A mystical map with rotating doors and narrow pathways.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+</body>
+</html>

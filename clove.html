@@ -8,6 +8,71 @@
     <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
 </head>
 <style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Valorant', sans-serif;
+    color: white;
+    background-color: #121212;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+}
+
+nav .logo p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4655; /* Valorant red */
+}
+
+nav .logo i {
+    font-size: 4rem; /* Make V bigger */
+    color: #ff4655;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-lnk {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.menu-lnk:hover {
+    color: #ff4655;
+}
+
+.mainbtn .plbtn {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mainbtn .plbtn:hover {
+    background-color: #e23a47;
+}
+
+/* Character Info Section */
 .character-info {
     display: flex;
     justify-content: center;
@@ -40,14 +105,97 @@
 }
 
 .character-name {
-    font-size: 2.5em;
+    font-size: 3em; /* Larger font size for character name */
+    font-weight: bold;
     margin: 0;
+    text-transform: uppercase;
 }
 
 .character-description {
     font-size: 1.2em;
     margin-top: 10px;
     max-width: 500px;
+    line-height: 1.6;
+}
+
+/* Special Abilities Section */
+.special-abilities {
+    padding: 40px;
+    background-color: #1c1c1c;
+}
+
+.abilities-info h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-selector .skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skill-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+.skills-display {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#skill-video {
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid #ff4655;
+    border-radius: 10px;
+}
+
+.skill-details {
+    margin-top: 20px;
+}
+
+.skill-details h3 {
+    font-size: 2em;
+}
+
+.skill-details p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Red Footer */
+footer {
+    background-color: #ff4655;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Button Styles for Navigation */
+.nav-button {
+    background-color: #ff4655;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #e23a47;
 }
 </style>
 <body>
@@ -81,16 +229,16 @@
             <div class="skills-selector">
                 <div class="skills-list">
                     <div class="skill-item" onclick="changeSkill(0)">
-                        <img src="clove/roots.avif" alt="Roots">
+                        <img src="clove/roots.jpg" alt="Roots">
                     </div>
                     <div class="skill-item" onclick="changeSkill(1)">
-                        <img src="clove/thorn.avif" alt="Thorn Barrage">
+                        <img src="clove/thorns.jpg" alt="Thorn Barrage">
                     </div>
                     <div class="skill-item" onclick="changeSkill(2)">
-                        <img src="clove/vine.avif" alt="Vine Trap">
+                        <img src="clove/vine.jpg" alt="Vine Trap">
                     </div>
                     <div class="skill-item" onclick="changeSkill(3)">
-                        <img src="clove/ult.avif" alt="Bloomfield">
+                        <img src="clove/ult.jpg" alt="Bloomfield">
                     </div>
                 </div>
             </div>
@@ -111,6 +259,10 @@
         <button onclick="window.location.href='home.html'" class="nav-button">Agents</button>
         <button onclick="window.location.href='login.html'" class="nav-button">Back to Home</button>
     </section>
+
+    <footer>
+        <p>&copy; 2024 Valorant | All Rights Reserved</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

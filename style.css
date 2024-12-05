@@ -1,3 +1,4 @@
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,12 +6,11 @@
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
 }
 
+/* Header Section */
 header {
     position: relative;
     width: 100%;
     height: 100vh;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
 }
@@ -35,12 +35,13 @@ header {
     overflow: hidden;
 }
 
+/* Navigation Bar */
 nav {
     display: flex;
     position: relative;
     width: 100%;
     height: 70px;
-    background-color: #222;
+    background-color: #111; /* Dark background for navigation */
 }
 
 .logo {
@@ -55,7 +56,7 @@ nav {
     margin-left: 40px;
     line-height: 65px;
     font-size: 20px;
-    font-family: 'VALORANT', sans-serif !important;
+    font-family: 'Valorant', sans-serif !important;
     color: #ece8e1;
 }
 
@@ -63,7 +64,7 @@ nav {
     margin-left: 40px;
     line-height: 65px;
     font-size: 20px;
-    font-family: 'VALORANT', sans-serif !important;
+    font-family: 'Valorant', sans-serif !important;
     font-weight: lighter;
     color: #ece8e1;
 }
@@ -73,24 +74,25 @@ nav {
     display: flex;
 }
 
-ul li {
+.menu ul li {
     margin: 0 30px;
 }
 
-ul li a {
+.menu ul li a {
     text-decoration: none;
     color: white;
     line-height: 65px;
+    font-size: 1rem; /* Slightly increased size for the menu items */
     transition: 0.5s ease-in-out;
 }
 
-ul li a:hover {
-    color: #ff4566;
+.menu ul li a:hover {
+    color: #ff4566; /* Valorant red for hover effect */
 }
 
 .mainbtn button {
     padding: 10px 30px;
-    background: #ff4566;
+    background: #ff4566; /* Valorant red */
     border: none;
     outline: none;
     color: #fff;
@@ -109,6 +111,7 @@ ul li a:hover {
     background-color: #222;
 }
 
+/* Main Banner Text */
 .appnext {
     position: absolute;
     left: 8%;
@@ -117,12 +120,12 @@ ul li a:hover {
 
 .appnext h2 {
     font-size: 4.2rem;
-    font-family: 'poppins';
-    color: var(#ece8e1);
+    font-family: 'Poppins', sans-serif;
+    color: #ece8e1;
 }
 
 .appnext h2 span {
-    color: #ff4566;
+    color: #ff4566; /* Valorant red for emphasis */
 }
 
 .appnext p {
@@ -132,13 +135,10 @@ ul li a:hover {
 }
 
 .appnext p span {
-    color: #ff4566;
+    color: #ff4566; /* Valorant red */
 }
 
-.appwarp .btncntr {
-    margin-top: 40px;
-}
-
+/* Button Styles */
 .btncntr {
     overflow-y: hidden;
 }
@@ -199,22 +199,21 @@ button div a {
     padding: 20px 80px;
 }
 
-button::after {
+button::after,
+button::before {
     content: '';
     position: absolute;
     left: -11px;
-    top: -10px;
     width: calc(100% + 20px);
     height: calc(50% + 5px);
 }
 
 button::before {
-    content: '';
-    position: absolute;
-    left: -11px;
     bottom: -10px;
-    width: calc(100% + 20px);
-    height: calc(50% + 5px);
+}
+
+button::after {
+    top: -10px;
 }
 
 /* Video Section */
@@ -278,9 +277,11 @@ button::before {
     transform: scale(1.05);
 }
 
-
+/* Footer Section */
 footer {
-    background-color: #222;
+    background-color: #111; /* Dark background for footer */
+    padding: 50px 20px;
+    color: white;
 }
 
 .footer-ctn {
@@ -291,32 +292,32 @@ footer {
 .socicon {
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 .socicon a {
     text-decoration: none;
-    padding: 10px;
-    background-color: white;
+    padding: 12px;
+    background-color: #ff4655; /* Valorant red for social icons */
     margin: 10px;
     border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .socicon a i {
     font-size: 2em;
-    color: #222;
-    opacity: 0.9;
+    color: white;
 }
 
 .socicon a:hover {
-    background-color: #111;
-    transition: 0.5;
+    background-color: #ff1e2d; /* Darker red for hover effect */
 }
 
-.socicon a :hover i {
-    color: #fff;
-    transition: 0.5;
+.socicon a:hover i {
+    color: #ece8e1; /* Light text color on hover */
 }
 
+/* Footer Navigation */
 .footer-nav {
     margin: 30px 0;
 }
@@ -328,22 +329,26 @@ footer {
 }
 
 .footer-nav ul li a {
-    color: #fff;
+    color: #ece8e1; /* Light gray for links */
     margin: 20px;
     text-decoration: none;
     font-size: 1.3em;
-    opacity: 0.7;
-    transition: 0.5s;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
 .footer-nav ul li a:hover {
     opacity: 1;
+    color: #ff4655; /* Valorant red for hover effect */
 }
 
+/* Bottom Footer Section */
 .footer-bottom {
-    background-color: #000;
-    padding: 20px;
+    background-color: #111; /* Dark background for footer bottom */
+    color: white;
     text-align: center;
+    padding: 20px;
+    border-top: 3px solid #ff4655; /* Valorant red border to separate the footer */
 }
 
 .footer-bottom p {
@@ -356,4 +361,5 @@ footer {
     letter-spacing: 1px;
     font-weight: 400;
     margin: 0px 5px;
+    color: #ece8e1;
 }

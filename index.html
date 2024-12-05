@@ -3,30 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Valorant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
 </head>
-<body>
-    <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true">
-        <div class="signin">
-            <form>
-                <label for="chk" aria-hidden="true">Sign Up</label>
-                <input type="text" name="txt" placeholder="User name" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pass" placeholder="Password" required="">
-                <button>Sign up</button>
-            </form>
+<body draggable="true">
+    <header>
+        <div class="wbcontainer">
+            <nav>
+                <div class="logo">
+                    <p><i>V</i>alorant</p>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="login.html" class="menu-lnk">Home</a></li>
+                        <li><a href="maps.html" class="menu-lnk">Maps</a></li>
+                        <li><a href="home.html" class="menu-lnk">Agents</a></li>
+                        <li><a href="about.html" class="menu-lnk">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="mainbtn">
+                    <button onclick="location.href='login.html'" class="plbtn">Play Now</button>
+                </div>
+            </nav>
+            <div class="bgimg">
+                <video src="backgrounds/bg-vd.mp4" muted loop autoplay class="main-video"></video>
+            </div>
+            <div class="appnext">
+                <h2><span>Valorant</span> First Person <br>Shooting Game<span> FPS</span></h2>
+                <p>A <span>5v5</span> First Person Shooter Tactical Game</p>
+                <div class="btncntr">
+                    <button class="playbutton plbtn">
+                        <div>
+                            <span></span>
+                            <a href="#">Play Now</a>
+                        </div>
+                    </button>
+                    <button class="accbutton"></button>
+                </div>
+            </div>
         </div>
-        <div class="login">
-            <form>
-                <label for="chk" aria-hidden="true">Login</label>
-                <input type="email" name="emaail" placeholder="Email" required="">
-                <input type="password" name="pass" placeholder="Password" required="">
-                <button onclick="location.href='login.html'">Log In</button>
-            </form>
+    </header>
+
+    <section class="video-section">
+        <div class="video-container">
+            <video src="video/ALL PATHS END HERE __ Vyse Agent Trailer - VALORANT.mp4" muted loop autoplay></video>
         </div>
-    </div>
+        <div class="context">
+            <h3>Valorant: Tactical FPS</h3>
+            <p>Valorant is a tactical, 5v5 first-person shooter game that combines elements of strategy, precision, and teamwork to provide an immersive and exciting experience. Play as one of the diverse Agents, each with unique abilities, and outsmart your opponents in intense, objective-based gameplay.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>Copyright &copy;2024: Designed by <span class="designer">Vince</span></p>
+        </div>
+    </footer>
 </body>
 </html>
